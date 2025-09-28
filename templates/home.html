@@ -3,18 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>california house price</title>
-
+    <title>California House Price Predictor</title>
+    
     <style>
-        .h1{
+        /* Body styling: center content vertically and horizontally */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* full viewport height */
+            margin: 0;
+            background: #f4f4f9;
+        }
+
+        /* Container for the form and results */
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
             text-align: center;
-            color: #000;
+        }
+
+        /* Form heading */
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Input fields styling */
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Buttons styling */
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Prediction text styling */
+        .prediction {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
         }
     </style>
 </head>
 
 <body>
-    <h1 class="h1">hello</h1>
-    
+    <div class="container">
+        <h2>CALCULATE CALIFORNIA HOUSE PRICE</h2>
+        
+        <form action="/predict" method="post">
+            <input type="number" id="MedInc" name="MedInc" required placeholder="Enter median income">
+            <input type="number" id="HouseAge" name="HouseAge" required placeholder="Enter house age">
+            <input type="number" id="AveRooms" name="AveRooms" required placeholder="Enter number of rooms">
+            <input type="number" id="AveBedrms" name="AveBedrms" required placeholder="Enter number of bedrooms">
+            <input type="number" id="Population" name="Population" required placeholder="Enter population">
+            <input type="number" id="AveOccup" name="AveOccup" required placeholder="Enter average occupancy">
+            <input type="number" id="Latitude" name="Latitude" required placeholder="Enter latitude">
+            <input type="number" id="Longitude" name="Longitude" required placeholder="Enter longitude">
+
+            <div>
+                <button type="submit">Predict</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+
+        <div class="prediction">
+            {{ prediction_text }}
+        </div>
+    </div>
 </body>
 </html>
