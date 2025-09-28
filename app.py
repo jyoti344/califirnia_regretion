@@ -1,7 +1,8 @@
 import pickle
-from flask import Flask,render_template,jsonify,url_for,request,app 
+from flask import Flask,render_template,jsonify,url_for,request
 import numpy as np
 import pandas as pd
+import os
 
 
 app = Flask(__name__)
@@ -35,4 +36,5 @@ def predict():
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)
